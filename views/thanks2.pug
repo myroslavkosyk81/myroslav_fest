@@ -1,0 +1,21 @@
+extends main_layout.pug
+
+block content
+  //h2 #[a(href='/thanks/' + ticket._id) #{ticket.name}]
+  .container-sm
+  .bg-image(style="background-image: url('../maldives.png');\
+  height: 100vh")
+    .row.justify-content-md-center
+      .col-md-9
+        .placeholder
+          .row.justify-content-md-center
+            .col-md-8
+              figure.text-center
+                blockquote.blockquote
+                  //h2 #[a(href='/thanks/' + ticket._id)]
+                  p Привіт, #{data.name}. Дякуємо за #{data.place} реєстрацію!
+                  p Щоб видалити #{data._id} замовлення натисніть кнопку Delete
+                    form(method='get' action='/delete')
+                      button.btn.btn-primary(type='submit') Delete all tickets
+                  h2 #[a(href="/thanks/" + data.id) Видалити Ваш квиток]
+                  p #{data.place}

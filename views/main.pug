@@ -1,0 +1,59 @@
+extends main_layout.pug
+
+block content
+  .container-sm
+  .bg-image(style="background-image: url('../beach.jpg'); height: 100vh")
+    .row.justify-content-md-center
+      .col-md-9
+        .placeholder
+          .row.justify-content-md-center
+            .col-md-8
+              form(method='post' action='/thanks')
+                .mb-3
+                  label.form-label(for='exampleInputEmail1') Номер місця
+                  input#exampleInputEmail1.form-control(type='number' name='place' aria-describedby='place' placeholder='введіть номер місця від 1 до 10')
+                  //#emailHelp.form-text We&apos;ll never share your email with anyone else.
+                .mb-3
+                  label.form-label(for='exampleInputEmail1') Ім’я
+                  input#exampleInputEmail1.form-control(type='text' name='name' aria-describedby='name' placeholder='введіть Ваше ім’я')
+                  #emailHelp.form-text Ми не розголошуємо ваші дані.
+                .mb-3
+                  label.form-label(for='exampleDataList') Оберіть фільм
+                  input#exampleDataList.form-control(name='film' list='datalistOptions')
+                  datalist#datalistOptions
+                    option(value='Пропала грамота')
+                    option(value='Тіні забутих предків')
+                .mb-3
+                .form-group
+                  label(for='inputDate') &Vcy;&vcy;&iecy;&dcy;&icy;&tcy;&iecy; &dcy;&acy;&tcy;&ucy;:
+                  input.form-control(name='date' type='date')
+
+                .mb-3.form-check
+                  input#invalidCheck.form-check-input(type='checkbox' value='' required='')
+                  label.form-check-label(for='invalidCheck')
+                    | Я погоджуюся з правилами організаторів.
+                  .invalid-feedback
+                    | Ви мусите погодитися з правилами організаторів.
+                  //input#exampleCheck1.form-check-input(type='checkbox')
+                  //label.form-check-label(for='exampleCheck1') Check me out
+                button.btn.btn-primary(type='submit') Submit
+                .footer
+                  h4 Уважно заповніть усі поля
+                  br
+                  br
+    .container-sm
+      .row.justify-content-center
+        .col-12
+          .placeholder
+            .row.justify-content-center
+              .col-12
+                h1 До початку кінофестивалю залишилося:
+                script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+                script(src='https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js' integrity='sha256-zZFgUYWREnXJDw3PMQASiGmzHVL+VNfcA5eaXhipwag=' crossorigin='anonymous')
+                link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css' integrity='sha256-MSeNrYhmfZbyTUAhVy7w153T7LFxQfCf/DBDjtbvZdg=' crossorigin='anonymous')
+                .clock
+                script(type='text/javascript').
+                  var clock = $('.clock').FlipClock(new Date("July 28, 2021 18:00:00"),{
+                  clockFace: 'DailyCounter',
+                  countdown: true
+                  });
