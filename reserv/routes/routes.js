@@ -3,9 +3,7 @@ module.exports = function(app){
 
     app.get('/', controllers.mainPage);
     // app.get('/thanks', controllers.thanksPage);
-
     app.get('/data', controllers.readTicket);
-    app.get('/usertikets', controllers.readTicketUser);
 
 
 

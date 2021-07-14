@@ -1,0 +1,23 @@
+extends main_layout.pug
+block content
+  ul
+    each ticket in tickets
+      form(action='/deleted/' + ticket._id method='get')
+        input(type='hidden' value='delete')
+        button.btn.btn-primary Видалити квиток на фільм 
+      h2 #{ticket.name}, ваш квиток на фільм
+      p Привіт, #{ticket.name}. Дякуємо за реєстрацію!
+
+  //- .container-sm
+  //-   .bg-image(style="background-image: url('../beach.jpg'); height: 100vh")
+  //- 
+  //-     .row.justify-content-md-center
+  //-       .col-md-9
+  //-         .placeholder
+  //-           .row.justify-content-md-center
+  //-             .col-md-8
+  //-               //- figure.text-center
+  //-               //-   blockquote.blockquote
+  //-               //- each ticket in tickets
+  //-               //-   h2 #{tiket.name}
+  //-                 //h2 #[a(href='/') Перейти на головну сторінку]
