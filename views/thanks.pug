@@ -16,9 +16,9 @@ block content
                   
                     ul
                       each ticket in tickets
-                        //- form(action='/deleted/' + ticket._id method='get')
-                        //-   input(type='hidden' value='delete')
-                        //-   button.btn.btn-primary Видалити квиток
+                        form(action='/deleted/' + ticket._id method='get')
+                          input(type='hidden' value='delete')
+                          button.btn.btn-primary Видалити квиток
                         p Привіт, #{ticket.name}. Дякуємо за реєстрацію!
 
                         p Щоб видалити останній замовлений квиток натисніть кнопку Видалити усі квитки

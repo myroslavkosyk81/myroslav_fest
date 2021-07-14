@@ -48,7 +48,8 @@ module.exports = {
     })
   },
   readTicketUser: function(req, res){
-    Ticket.find({name: req.params.name}, null, {sort: {createdAt: 'desc'}}, function(err, records) {
+    const numberOfTickets = 10
+    Ticket.find({}, null, {sort: {createdAt: 'desc'}}, function(err, records) {
        res.render('usertikets', { tickets: records })
     });
 
