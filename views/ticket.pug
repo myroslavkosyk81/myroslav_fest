@@ -1,0 +1,16 @@
+extends main_layout.pug
+
+block content
+  
+  .bg-image(style="background-image: url('../beach.jpg'); height: 100vh")
+    .container-sm
+      .row.justify-content-md-center
+        .col-md-9
+          .placeholder
+            .row.justify-content-md-center
+              .col-md-8
+                figure.text-center
+                  blockquote.blockquote
+                    h3 #{ticket.name} Ваш квиток номер #{ticket.id}
+                    h2 #[a(href='/') Перейти на головну сторінку]
+                    //h2 #[a(href='/usertikets/') Повернутися до переліку квитків]

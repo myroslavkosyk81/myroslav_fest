@@ -4,7 +4,8 @@ var ticketSchema = new mongoose.Schema({
   name: {
     type: String,
     index: true,
-    required: true
+    required: true,
+    unique: true
   },
   // last_name: {
   //   type: String,
@@ -21,21 +22,21 @@ var ticketSchema = new mongoose.Schema({
   //   index: true,
   //   required: true
   // },
-  // film: {
-  //   type: String,
-  //   index: true,
-  //   required: true
-  // },
-  // date: {
-  //   type: Date,
-  //   index: true,
-  //   required: true
-  // },
-  // place: {
-  //   type: Number,
-  //   index: true,
-  //   required: true
-  // }
+  film: {
+    type: String,
+    index: true,
+    required: true
+  },
+  date: {
+    type: Date,
+    index: true,
+    required: true
+  },
+  place: {
+    type: Number,
+    index: true,
+    required: true
+  }
 }, {timestamps: true});
 
 var Ticket = mongoose.model('Ticket', ticketSchema);

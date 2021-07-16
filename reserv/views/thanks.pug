@@ -1,27 +1,25 @@
 extends main_layout.pug
 
 block content
-  .container-sm
+  
   .bg-image(style="background-image: url('../beach.jpg'); height: 100vh")
+    .container-sm
+      .row.justify-content-md-center
+        .col-md-9
+          .placeholder
+            .row.justify-content-md-center
+              .col-md-8
+                figure.text-center
+                  blockquote.blockquote
+                    p Привіт, #{data.name}. Дякуємо за реєстрацію!
 
-    .row.justify-content-md-center
-      .col-md-9
-        .placeholder
-          .row.justify-content-md-center
-            .col-md-8
-              figure.text-center
-                blockquote.blockquote
-                  ul
-                    each ticket in tickets
-                      form(action='/deleted/' + ticket._id method='get')
-                        input(type='hidden' value='delete')
-                        button.btn.btn-primary Видалити квиток
-                      p Привіт, #{ticket.name}. Дякуємо за реєстрацію!
+                    p Щоб видалити останній замовлений квиток натисніть кнопку Видалити усі квитки
+                    p Щоб видалити усі замовлені квитки натисніть кнопку Видалити усі квитки
 
-                      p Щоб видалити останній замовлений квиток натисніть кнопку Видалити усі квитки
-                      p Щоб видалити усі замовлені квитки натисніть кнопку Видалити усі квитки
-
-                
-                form(method='get' action='/delete')
-                  button.btn.btn-primary(type='submit') Видалити усі Ваші квитки
-                h2 #[a(href='/data') Переглянути усі замовлення]
+                      
+                  form(method='get' action='/delete')
+                    button.btn.btn-primary(type='submit') Видалити усі Ваші квитки
+                  form(method='get' action='/usertikets')
+                    button.btn.btn-primary(type='submit') Переглянути усі Ваші квитки
+                  h2 #[a(href='/') Перейти на головну сторінку]
+                  //- h2 #[a(href='/usertikets') Переглянути усі замовлення]

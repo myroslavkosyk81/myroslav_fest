@@ -4,7 +4,8 @@ var ticketSchema = new mongoose.Schema({
   name: {
     type: String,
     index: true,
-    required: true
+    required: true,
+    unique: true
   },
   // last_name: {
   //   type: String,

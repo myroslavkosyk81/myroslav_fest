@@ -8,10 +8,8 @@ module.exports = {
 
   thanksPage: function (req, res, next) {
     var ticket = new Ticket(req.body)
-    // res.json(ticket)
     ticket.save()
       .then(function (result) {
-        //return res.redirect('thanks')
         next();
       })
       .catch(err => {
@@ -21,8 +19,14 @@ module.exports = {
   },
   thanksPageAll: function (req, res) {
     const numberOfTickets = 1
+    var data = req.body
     Ticket.find({}, null, {limit: numberOfTickets, sort: {createdAt: 'desc'}}, function(err, records) {
-       res.render('thanks', { tickets: records })
+
+       res.render('thanks', { data: data })
+    // var data = req.body
+    // Ticket.find({}, null, {sort: {createdAt: 'desc'}}, function(err, records) {
+    //
+    //    res.render('thanks', { data: data })
     });
   },
   // mainPageAtofill: function autofill(){
@@ -47,8 +51,16 @@ module.exports = {
       return res.json(err)
     })
   },
+  // readTicketUser1: function(req, res){
+  //   var userName = req.body.name
+  //   console.log(userName)
+  //   Ticket.find({}, null, {sort: {createdAt: 'desc'}}, function(err, records) {
+  //      res.render('usertikets', { tickets: records })
+  //   });
+  // },
   readTicketUser: function(req, res){
-    const numberOfTickets = 10
+    var userName = req.body.name
+    console.log(userName)
     Ticket.find({}, null, {sort: {createdAt: 'desc'}}, function(err, records) {
        res.render('usertikets', { tickets: records })
     });
@@ -69,6 +81,12 @@ module.exports = {
     // })
     //res.render('usertikets', { tickets: records })
 
+  },
+  readOneTicket: function(req, res){
+    Ticket.findOne({_id: req.params.id}, null, {}, function(err, ticket) {
+      // res.json(ticket)
+      res.render('ticket', { ticket: ticket })
+    })
   },
 
       //res.send('read')},
@@ -92,7 +110,7 @@ module.exports = {
     .catch(err => {
       return res.status(422).json(err)
     })
-    res.render('deleteone', { title: 'Hey', message: 'Hello there!', data: req.body});
+    res.render('deleteone', { data: req.body});
       //res.send('delete' + req.params.id)\
     },
   deleteAllTicketsByName: function(req, res){
